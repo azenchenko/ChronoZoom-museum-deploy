@@ -1,0 +1,201 @@
+﻿body {
+}
+
+@import "_colors";
+@import "_mixins";
+@import "_vars";
+
+#map-layer {
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    top: 35px;
+    right: 0;
+    bottom: 25px;
+    left: 0;
+    z-index: 160;
+
+    .active-selected {
+        fill: #666666;
+    }
+}
+
+.map-title {
+    .box-sizing;
+    border-top: 1px solid #bfbfbf;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 15px;
+    font-size: 25px;
+    background: #232323;
+    color: #bfbfbf;
+}
+
+.map-start-date {
+    position: absolute;
+    left: 0;
+    padding-left: 25px;
+    font-size: 25px;
+    top: 15px;
+    color: #bfbfbf;
+}
+
+.map-end-date {
+    position: absolute;
+    right: 0;
+    font-size: 25px;
+    padding-right: 25px;
+    top: 15px;
+    color: #bfbfbf;
+}
+
+#map-layer svg {
+    width: 100%;
+    height: 100%;
+    background: #6285A9;
+    overflow: hidden;
+}
+
+#map-layer .map-close-btn {
+    position: absolute;
+    right: 0;
+    left: 6px;
+    width: 48px;
+    height: 48px;
+    top: 65px;
+    background: url(/images/arrow-navigation-back.png) 0 0;
+    cursor: pointer;
+}
+
+.subunit-boundary {
+      fill: none;
+      stroke: #553;
+    }
+
+.subunit { 
+    fill: #E6E6E6;
+    transition: fill ease-in 0.3s;
+}
+
+.subunit:hover{
+    fill: #B3B3B3;
+}
+
+.subunit-label {
+    fill: #222;
+    font-size: 3px;
+    font-weight: 300;
+    text-anchor: middle;
+    font-family: "Verdana";
+    pointer-events: none;
+}
+
+.tooltip-exhibit-container {
+    .box-sizing;
+    position: relative;
+    padding: 5px;
+    width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid transparent;
+
+    transition: background ease-in 0.2s;
+    transition: border ease-in 0.2s;
+
+    .tooltip-exhibit-thumb {
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
+    }
+
+    &:hover {
+        border: 1px solid #00bce0;
+        background-color: rgba(80,80,104,.7);
+        cursor: pointer;
+    }
+
+    &:before,
+    &:after {
+        position: absolute;
+        min-width: 125px;
+        left: 75px;
+    }
+
+    &:before {
+        top: 5px;
+        font-weight: bold;
+        content: attr(data-description);
+    }
+
+    &:after {
+        top: 35px;
+        content: attr(data-date);
+    }
+}
+
+#mapAreaInfo {
+    .box-sizing;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    z-index: 1;
+    display: none;
+    overflow: hidden;
+    background: #232323;
+    color: #cfcfcf;
+
+    .content-container {
+        height: 100%;
+        overflow: auto;
+        margin-top: 50px;
+        .box-sizing;
+        padding-bottom: 70px;
+    }
+
+    .map-view-exhibit-info-header {
+        width: 100%;
+        text-align: center;
+    }
+
+    .map-view-exhibit-info-close-btn {
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 25px;
+        height: 30px;
+        width: 30px;
+        margin-top: 20px;
+
+        background: url(/images/close_off.png) 0 0;
+
+        &:hover {
+            cursor: pointer;
+            background: #232323 url(/images/close_on.png) 0 0;
+        }
+    }
+}
+
+.map-view-exhibit-info {
+    margin-bottom: 25px;
+
+    img,
+    iframe {
+        height: 200px;
+        width: 200px;
+        float: left;
+        margin-right: 25px;
+    }
+
+    .map-view-exhibit-info-description {
+        height: 200px;
+    }
+}
+
+.selected {
+    fill: #EAA4A4;
+}
